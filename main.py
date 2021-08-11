@@ -1,17 +1,28 @@
-# ウィンドウ立ち上げ
-#--------------------------------
-
-# Tkinterモジュールのインポート
 import tkinter
+from tkinter import *
 
-# ウィンドウ（フレーム）の作成
 root = tkinter.Tk()
+root.title("HaLake Desktop")
 
-# ウィンドウの名前を設定
-root.title("demo_Tkinter")
+root.state('zoomed')
+root.configure(background='black')
+root.attributes("-alpha",0.85)
+root.attributes('-transparent', 0.85)
 
-# ウィンドウの大きさを設定
-root.geometry("400x400")
+text = Text(root)
+text.insert(INSERT, "Hello, world!\n")
+text.insert(END, "This is a phrase.\n")
+text.insert(END, "Bye bye...")
 
-# イベントループ（TK上のイベントを捕捉し、適切な処理を呼び出すイベントディスパッチャ）
+for i in range(1000):
+    text.insert(INSERT, "Hello, world!\n")
+    text.insert(END, "This is a phrase.\n")
+    text.insert(END, "Bye bye...")
+
+text.pack(expand=1, fill=BOTH)
+
+# adding a tag to a part of text specifying the indices
+text.tag_add("start", "1.7", "1.13")
+text.tag_config("start", background="black", foreground="yellow")
+
 root.mainloop()
