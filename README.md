@@ -1,0 +1,2 @@
+
+cpip install cx-Freeze
